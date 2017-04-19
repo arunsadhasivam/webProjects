@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<!-- Initialization for data source -->
+
+
+	<!-- Definition for studentJDBCTemplate bean -->
+
+	
+
+	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+			<property name="dataSource" ref="oracleDB"></property>  
+	</bean>
+
+
+
+	<bean id="oracleDB"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
+		<property name="url" value="jdbc:oracle:thin:@localhost:1521:XE" />
+		<property name="username" value="rice" />
+		<property name="password" value="rice" />
+	</bean>
+
+
+<!-- 	<bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
+		<property name="jndiName" value="java:comp/env/jdbc/MyLocalDB" />
+	</bean>
+	<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<property name="url" value="jdbc:mysql://localhost:3306/TEST" />
+		<property name="username" value="root" />
+		<property name="password" value="password" />
+	</bean>
+	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource" ref="dataSource" />
+	</bean> -->
+	
+	
+	<bean id="AbstractDAO" class="com.shop.dao.AbstractDAO" abstract="true">
+		<property name="jdbcTemplate" ref="jdbcTemplate"></property>
+	</bean> 
+	 
+
+	<bean id="shopDAO" class="com.shop.dao.ShopDAO" parent="AbstractDAO">
+	</bean>
+</beans>
