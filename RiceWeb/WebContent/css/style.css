@@ -64,9 +64,6 @@
 	display: inline-block;
 	float: left;
 	width: 100%;
-	font-size:3px !important;
-	font-weight:normal !important;
-	text-decoration: none !important;
 }
 
 .warning {

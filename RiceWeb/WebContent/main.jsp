@@ -1,5 +1,3 @@
- 
-
 <html>
 <head>
 <link rel="stylesheet" type="text/css"
@@ -26,12 +24,12 @@ function onload(){
 <body  onload="onload()">
 <!-- if this form is there when submit multipart form also this main form gets submitted and go to upload page again it wont go to servlet
    <form name='frmMain'  id='frmMain' method="POST">-->   
-<table  class="mainHeader" >             
-		<tr> 
+<table  class="mainHeader" >
+		<tr>
 			<td colspan="2" valign="top"><jsp:include
-					page="/layouts/header.jsp"></jsp:include></td> 
+					page="/layouts/header.jsp"></jsp:include></td>
 		</tr>
-		
+
 		<tr>
 		  <td colspan="2" valign="top">Welcome ADMIN!!!</td>
 		</tr>
@@ -41,9 +39,15 @@ function onload(){
 				<table class="mainHeader">
 					<tr>
 						<td width="20%" id="leftPanel" valign="top" class="leftpanel">
-							<jsp:include page="/jsps/leftpanel.jsp"></jsp:include>
+ 							 <jsp:include page="/jsps/leftpanel.jsp"></jsp:include> 
 						</td>
-						<td width="80%" id="content" valign="top"></td>
+						<td width="1%">
+						</td>
+						<td width="79%" id="content" valign="top">
+						
+						
+						
+						</td>
 
 					</tr>
 

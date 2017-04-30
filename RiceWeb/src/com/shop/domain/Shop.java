@@ -1,9 +1,14 @@
 package com.shop.domain;
 
-import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
-public class Shop implements Serializable {
+public class Shop extends DomainObject {
 
+	/**
+	 * default uuid.
+	 */
+	private static final long serialVersionUID = 4967620567358696690L;
 	private String customerId;
 	private String customerNo;
 	private String firstName;
@@ -19,10 +24,12 @@ public class Shop implements Serializable {
 
 	private String emailID;
 
-	private String message;
+	
+	private List<Address> addressList = new ArrayList<Address>();
 
 	/**
 	 * @return the customerId
+	 * 
 	 */
 	public String getCustomerId() {
 		return customerId;
@@ -127,20 +134,6 @@ public class Shop implements Serializable {
 	}
 
 
-	/**
-	 * @return the message
-	 */
-	public String getMessage() {
-		return message;
-	}
-
-	/**
-	 * @param message
-	 *            the message to set
-	 */
-	public void setMessage(String message) {
-		this.message = message;
-	}
 
 	/**
 	 * @return the notedName
@@ -210,6 +203,20 @@ public class Shop implements Serializable {
 	 */
 	public void setEmailID(String emailID) {
 		this.emailID = emailID;
+	}
+
+	/**
+	 * @return the addressList
+	 */
+	public List<Address> getAddressList() {
+		return addressList;
+	}
+
+	/**
+	 * @param addressList the addressList to set
+	 */
+	public void setAddressList(List<Address> addressList) {
+		this.addressList = addressList;
 	}
 
 }

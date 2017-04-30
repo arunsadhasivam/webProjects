@@ -57,7 +57,6 @@
 	</div>
 </div>
 
-
 <style>
 button.accordion {
 	background-color: #ffffff;

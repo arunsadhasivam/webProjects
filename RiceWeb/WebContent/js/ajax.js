@@ -33,13 +33,6 @@
 	 
  }
  
- function renderMessage(url,message){
-	 xmlhttp = getxmlRequest();
-	 xmlhttp.onreadystatechange = statechanged;
-	 xmlhttp.open('GET', url);
-	 xmlhttp.send(null);
-	 
- }
  
 
  
@@ -85,10 +78,40 @@
     	 param += '&remarks='+remarks;
     	 
     	 url =context +'/saveCustomerDetails.htm?message='+message+param;	
-    	 renderMessage(url);
+    	 renderResponse(url);
      }else if(val==5){ 
     	 var custNo= document.getElementById('searchKey').value;
     	 url =context +'/search.htm?custNo='+custNo;	 
+    	 renderResponse(url);
+     }else if(val==6){ 
+    	 url =context +'/addAddress.htm';	 
+    	 renderResponse(url);
+     }else if(val==7){ 
+    	 alert('save Address:::')
+    	 
+    	  var size = document.getElementById('custSize').value;
+    	 var streetName  ='';
+    	 var aptNo ='';
+    	 var city ='';
+    	 var pincode ='';
+    	 var district ='';
+    	 for(var i=0;i<size;i++){
+	    	 streetName = streetName + document.getElementById('streetName'+i).value +",";
+	    	 aptNo =  aptNo + document.getElementById('aptNo'+i).value  +",";
+	    	 city = city + document.getElementById('city'+i).value +",";
+	    	 pincode = pincode + document.getElementById('pincode'+i).value +"," ;
+	    	 district = district + document.getElementById('district'+i).value +",";
+    	 }
+    	 
+    	 var message= document.getElementById('message').value;
+    	  
+    	 var param = '&streetName='+streetName;
+    	 param += '&aptNo='+aptNo;
+    	 param += '&city='+city;
+    	 param += '&pincode='+phoneNumber;
+    	 param += '&district='+remarks;
+    	 alert(param);
+    	 url =context +'/saveAddress.htm?message='+message+param;	  
     	 renderResponse(url);
      }else {
     	 url =context +'/jsps/error.jsp';	 
