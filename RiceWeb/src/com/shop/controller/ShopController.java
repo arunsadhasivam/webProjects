@@ -112,11 +112,13 @@ public class ShopController {
 		System.out.println("saveCustomerDetails: BEGIN");
 		int resut = shopService.insert(shop);
 		String message ="Error in insertion...";
+		request.setAttribute("savedStatus", 0);
 		
 		if(resut == 0){
 			message ="Customer details inserted Sucessfully";
 		}
 
+		request.setAttribute("savedStatus", resut);
 		shop.setMessage(message);
 		request.setAttribute("message", message);
 		//addresslist.clear();//clear after insertion.
@@ -138,6 +140,7 @@ public class ShopController {
 	 */
 	@RequestMapping("/addAddress")
 	public ModelAndView addAddress(Model model,@ModelAttribute("shop") Shop shop,
+			HttpServletRequest request,
 			@ModelAttribute("custNo") String custNo,
 			HttpServletRequest req) {
 		System.out.println("ShopController.Add()");
@@ -145,6 +148,7 @@ public class ShopController {
 		System.out.println("ShopController.addAddress()"+shop.getCustomerNo());
 		System.out.println("ShopController.custNo()"+custNo);
 
+		request.setAttribute("savedStatus", 0);
 
 		Address address = new Address();
 		shop.getAddressList().add(address);
@@ -173,7 +177,10 @@ public class ShopController {
 		String message ="Error in Customer Address details insertion...";
 		
 		if(resut == 0){
+
 			message ="Customer Address details inserted Sucessfully";
+		}else{
+
 		}
 
 		shop.setMessage(message);
@@ -198,43 +205,43 @@ public class ShopController {
    	 
 	 int size = shop.getAddressList().size();
 	 String streetName = request.getParameter("streetName");
-//   	 String aptNo = request.getParameter("aptNo");
-//   	 String city = request.getParameter("city");
-//   	 String pincode = request.getParameter("pincode");
-//   	 String district = request.getParameter("district");
+   	 String aptNo = request.getParameter("aptNo");
+   	 String city = request.getParameter("city");
+   	 String pincode = request.getParameter("pincode");
+   	 String district = request.getParameter("district");
    	 
    	 
    	 int sindex= streetName.lastIndexOf(",");
-//   	 int aptindex= aptNo.lastIndexOf(",");
-//   	 int cityindex= city.lastIndexOf(",");
-//   	 int pincodeindex= pincode.lastIndexOf(",");
-//   	 int districtindex= district.lastIndexOf(",");
+   	 int aptindex= aptNo.lastIndexOf(",");
+   	 int cityindex= city.lastIndexOf(",");
+   	 int pincodeindex= pincode.lastIndexOf(",");
+   	 int districtindex= district.lastIndexOf(",");
 
    	 
    	 streetName = streetName.substring(0, sindex);
-//  	 aptNo = request.getParameter("aptNo").substring(0, aptindex);
-//  	 city = request.getParameter("city").substring(0, cityindex);
-//  	 pincode = request.getParameter("pincode").substring(0, pincodeindex);
-//  	 district = request.getParameter("district").substring(0, districtindex);
+  	 aptNo = request.getParameter("aptNo").substring(0, aptindex);
+  	 city = request.getParameter("city").substring(0, cityindex);
+  	 pincode = request.getParameter("pincode").substring(0, pincodeindex);
+  	 district = request.getParameter("district").substring(0, districtindex);
   	 
    	 	
   	 
   	 String streetNameArr[] = streetName.split(",");
-//  	 String aptNoArr[] = aptNo.split(",");
-//  	 String cityArr[] = city.split(",");
-//  	 String pincodeArr[] = pincode.split(",");
-//  	 String districtArr[] = district.split(",");;
-//  	 
+  	 String aptNoArr[] = aptNo.split(",");
+  	 String cityArr[] = city.split(",");
+  	 String pincodeArr[] = pincode.split(",");
+  	 String districtArr[] = district.split(",");;
+  	 
    	 
 	 for(int i =0;i<size;i++){
 		
 	   	 
 		 Address address = shop.getAddressList().get(i);	
 		 address.setStreetName(streetNameArr[i]);
-//		 address.setAptNo(aptNoArr[i]);
-//		 address.setCity(cityArr[i]);
-//		 address.setPincode(pincodeArr[i]);
-//		 address.setDistrict(districtArr[i]);
+		 address.setAptNo(aptNoArr[i]);
+		 address.setCity(cityArr[i]);
+		 address.setPincode(pincodeArr[i]);
+		 address.setDistrict(districtArr[i]);
 
 	 }
 		

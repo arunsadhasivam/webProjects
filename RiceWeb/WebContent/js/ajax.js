@@ -43,6 +43,16 @@
 }
  
  
+ function getValue(val){
+	 if(val=='' && val==null ){
+		 return 'NA'
+		 
+	 }
+	 
+	 return  val;
+ }
+ 
+ 
   
  function render(val){
 	 var context = document.getElementById('context').value;
@@ -96,11 +106,11 @@
     	 var pincode ='';
     	 var district ='';
     	 for(var i=0;i<size;i++){
-	    	 streetName = streetName + document.getElementById('streetName'+i).value +",";
-	    	 aptNo =  aptNo + document.getElementById('aptNo'+i).value  +",";
-	    	 city = city + document.getElementById('city'+i).value +",";
-	    	 pincode = pincode + document.getElementById('pincode'+i).value +"," ;
-	    	 district = district + document.getElementById('district'+i).value +",";
+	    	 streetName = streetName +getValue( document.getElementById('streetName'+i).value) +",";
+	    	 aptNo =  aptNo + getValue(document.getElementById('aptNo'+i).value ) +",";
+	    	 city = city + getValue(document.getElementById('city'+i).value) +",";
+	    	 pincode = pincode + getValue( document.getElementById('pincode'+i).value ) +"," ;
+	    	 district = district + getValue(document.getElementById('district'+i).value ) +",";
     	 }
     	 
     	 var message= document.getElementById('message').value;
@@ -108,9 +118,8 @@
     	 var param = '&streetName='+streetName;
     	 param += '&aptNo='+aptNo;
     	 param += '&city='+city;
-    	 param += '&pincode='+phoneNumber;
-    	 param += '&district='+remarks;
-    	 alert(param);
+    	 param += '&pincode='+pincode;
+    	 param += '&district='+district;
     	 url =context +'/saveAddress.htm?message='+message+param;	  
     	 renderResponse(url);
      }else {

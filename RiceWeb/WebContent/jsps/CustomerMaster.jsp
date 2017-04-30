@@ -93,8 +93,9 @@
 						<td colspan="2" align="center"><input type="button" onclick="render('4')"
 							name="submit" value="submit" /></td>
 
-						<td colspan="2" align="center"><input type="button"
-							name="submit" value="AddAddress" onclick="render('6')" /></td>
+
+
+					
 					</tr>
 
 
@@ -109,51 +110,64 @@
 				</table>
 			</td>
 		</tr>
+		
 	</table>
 
-	<table border="1">
-		<tr>
-			<td>Street No</td>
-			<td>Apt No</td>
-			<td>city</td>
-			<td>Pincode</td>
-			<td>District</td>
-		</tr>
-
-		<c:forEach var="address" items="${shop.addressList}" varStatus="result">
+	<c:if test="${savedStatus==0}">
+		<table border="1"  class="hl7table" style="width:80%">
 			<tr>
-				<td><form:input type="text" id="streetName${result.index}"   path="addressList[${result.index}].streetName"  /></td>
-				 <td><form:input type="text" id="aptNo${result.index}"  path="addressList[${result.index}].aptNo"  /></td>
-				<td><form:input type="text" id="city${result.index}" path="addressList[${result.index}].city"  /></td>
-				<td><form:input	  type="text" id ="pincode${result.index}" path="addressList[${result.index}].pincode"/></td>
-				<td><form:input type="text" id="district${result.index}" path="addressList[${result.index}].district"/></td>  
+				<td  align="center"><input type="button"
+					name="submit" value="Add Customer Address>>>" onclick="render('6')" /></td>
 			</tr>
-			
-			
-		</c:forEach>
-		
-		<tr>
-		
-						<td colspan="5" align="center">
-						
-						
-						<input type="button" onclick="alert('1');render('7')"
-							name="Add" value="saveAddress" /></td>
-							
-		   </tr>
-		<%-- <c:forEach var="address" items="${addresslist}" varStatus="result">
+
+		</table>
+	</c:if>
+	<c:if test="${savedStatus==0 and shop.addressList!=null and shop.addressList.size()>0 }">
+
+		<table border="1" class="hl7table">
+			<tr>
+				<td>Street No</td>
+				<td>Apt No</td>
+				<td>city</td>
+				<td>Pincode</td>
+				<td>District</td>
+			</tr>
+	
+			<c:forEach var="address" items="${shop.addressList}" varStatus="result">
 				<tr>
-					<td> <input type="text"  value="${address.streetName}" /></td>
- 					<td><input type="text" value="${address.aptNo}" /></td>
-				  <td><input type="text" value="${address.city}" /></td>
-					<td><input type="text" value="${address.pincode}" /></td>
-					<td><input type="text" value="${address.district}" /></td> 
+					<td><form:input type="text" id="streetName${result.index}"   path="addressList[${result.index}].streetName"  /></td>
+					 <td><form:input type="text" id="aptNo${result.index}"  path="addressList[${result.index}].aptNo"  /></td>
+					<td><form:input type="text" id="city${result.index}" path="addressList[${result.index}].city"  /></td>
+					<td><form:input	  type="text" id ="pincode${result.index}" path="addressList[${result.index}].pincode"/></td>
+					<td><form:input type="text" id="district${result.index}" path="addressList[${result.index}].district"/></td>  
 				</tr>
-		</c:forEach> --%>
-		
-		<tr>
-		 <td><input type="text"  id="custSize" value="${shop.addressList.size()}" /></td>
-		</tr>
-	</table>
+				
+				
+			</c:forEach>
+			
+			<tr>
+			
+							<td colspan="5" align="center">
+							
+							
+							<input type="button" onclick="alert('1');render('7')"
+								name="Add" value="saveAddress" /></td>
+								
+			   </tr>
+			<%-- <c:forEach var="address" items="${addresslist}" varStatus="result">
+					<tr>
+						<td> <input type="text"  value="${address.streetName}" /></td>
+	 					<td><input type="text" value="${address.aptNo}" /></td>
+					  <td><input type="text" value="${address.city}" /></td>
+						<td><input type="text" value="${address.pincode}" /></td>
+						<td><input type="text" value="${address.district}" /></td> 
+					</tr>
+			</c:forEach> --%>
+			
+			<tr>
+			 <td><input type="text"  id="custSize" value="${shop.addressList.size()}" /></td>
+			</tr>
+		</table>
+	</c:if>
 </form:form>
 

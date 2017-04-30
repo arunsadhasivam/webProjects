@@ -22,22 +22,26 @@ import com.shop.domain.Shop;
 public class ShopDAO extends AbstractDAO {
 	
 	/*
-	CUSTOMER_ID                               NOT NULL NUMBER
-	CUSTOMER_NO                               NOT NULL VARCHAR2(10)
-	FIRST_NAME                                         VARCHAR2(50)
-	LAST_NAME                                          VARCHAR2(50)
-	NOTED_NAME                                         VARCHAR2(30)
-	FATHER_NAME                                        VARCHAR2(30)
-	PHONE_NUMBER                                       NUMBER(12)
-	GENDER                                             CHAR(1)
-	MOBILE_NUMBER                                      NUMBER(10)
-	MOBILE_NUMBER2                                     NUMBER(10)
-	EMAIL_ID                                           VARCHAR2(30)
-	REMARKS                                            VARCHAR2(200)
-	CREATED_BY                                         VARCHAR2(20)
-	CREATION_DATE                                      DATE
-	LAST_UPDATED_BY                                    VARCHAR2(20)
-	LAST_UPDATE_DATE                                   DATE*/
+		 Name                                      Null?    Type
+	 ----------------------------------------- -------- -----------------------
+	
+	 CUSTOMER_ID                               NOT NULL NUMBER
+	 CUSTOMER_NO                               NOT NULL VARCHAR2(10)
+	 FIRST_NAME                                         VARCHAR2(50)
+	 LAST_NAME                                          VARCHAR2(50)
+	 NOTED_NAME                                         VARCHAR2(30)
+	 FATHER_NAME                                        VARCHAR2(30)
+	 PHONE_NUMBER                                       NUMBER(12)
+	 GENDER                                             CHAR(1)
+	 MOBILE_NUMBER                                      NUMBER(10)
+	 MOBILE_NUMBER2                                     NUMBER(10)
+	 EMAIL_ID                                           VARCHAR2(30)
+	 REMARKS                                            VARCHAR2(200)
+	 CREATED_BY                                         VARCHAR2(20)
+	 CREATION_DATE                                      DATE
+	 LAST_UPDATED_BY                                    VARCHAR2(20)
+	 LAST_UPDATE_DATE                                   DATE
+	*/
 	
 	private static final String SELECT_QUERY= "SELECT * FROM XX_customer_headers order by CUSTOMER_ID";
 	

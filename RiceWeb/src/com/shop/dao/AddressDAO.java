@@ -17,12 +17,12 @@ public class AddressDAO extends AbstractDAO {
 	
 
 /*	create table tmp_cust_address(
-
-			streetName varchar(125),
-			aptno varchar(10),
-			district varchar(10),
-			pincode  varchar(10),
-			city varchar(10)
+            custno  varchar2(10),
+			streetName varchar2(125),
+			aptno varchar2(10),
+			district varchar2(10),
+			pincode  varchar2(10),
+			city varchar2(10)
 
 
 			)*/
