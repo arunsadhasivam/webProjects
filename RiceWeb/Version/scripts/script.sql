@@ -36,3 +36,7 @@ create table tmp_cust_address(
  LAST_UPDATE_DATE                                   DATE
  
  );
+
+
+alter table XX_customer_headers add constraint(primary_key CUSTOMER_ID                               NOT NULL NUMBER,
+ CUSTOMER_NO not null);
